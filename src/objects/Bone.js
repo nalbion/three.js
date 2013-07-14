@@ -3,17 +3,29 @@
  * @author alteredq / http://alteredqualia.com/
  */
 
+ 
+ /**
+  * @param {THREE.SkinnedMesh} belongsToSkin
+  * @constructor
+  * @extends THREE.Object3D
+  */
 THREE.Bone = function( belongsToSkin ) {
 
 	THREE.Object3D.call( this );
 
+	/** @type {THREE.SkinnedMesh} */
 	this.skin = belongsToSkin;
+	/** @type {THREE.Matrix4} */
 	this.skinMatrix = new THREE.Matrix4();
 
 };
 
 THREE.Bone.prototype = Object.create( THREE.Object3D.prototype );
 
+/**
+ * @param {THREE.Matrix4} parentSkinMatrix
+ * @param {boolean} forceUpdate
+ */
 THREE.Bone.prototype.update = function ( parentSkinMatrix, forceUpdate ) {
 
 	// update local

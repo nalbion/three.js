@@ -4,6 +4,17 @@
  * @author bhouston / http://exocortex.com
  */
 
+/**
+ * The portion of a solid (normally a cone or pyramid) that lies between two parallel planes cutting it
+ * @see http://en.wikipedia.org/wiki/Frustum
+ * @param {THREE.Plane=} p0
+ * @param {THREE.Plane=} p1
+ * @param {THREE.Plane=} p2
+ * @param {THREE.Plane=} p3
+ * @param {THREE.Plane=} p4
+ * @param {THREE.Plane=} p5
+ * @constructor
+ */ 
 THREE.Frustum = function ( p0, p1, p2, p3, p4, p5 ) {
 
 	this.planes = [

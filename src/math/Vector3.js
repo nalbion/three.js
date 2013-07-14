@@ -7,6 +7,12 @@
  * @author WestLangley / http://github.com/WestLangley
  */
 
+/**
+ * @param {number} x
+ * @param {number} y
+ * @param {number} z
+ * @constructor
+ */
 THREE.Vector3 = function ( x, y, z ) {
 
 	this.x = x || 0;
@@ -19,6 +25,12 @@ THREE.Vector3.prototype = {
 
 	constructor: THREE.Vector3,
 
+	/**
+	 * @param {number} x
+	 * @param {number} y
+	 * @param {number} z
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	set: function ( x, y, z ) {
 
 		this.x = x;
@@ -29,6 +41,10 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {number} x
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	setX: function ( x ) {
 
 		this.x = x;
@@ -37,6 +53,10 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {number} y
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	setY: function ( y ) {
 
 		this.y = y;
@@ -45,6 +65,10 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {number} z
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	setZ: function ( z ) {
 
 		this.z = z;
@@ -53,6 +77,11 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {number} index - 0 to 2
+	 * @param {number} value
+	 * @throw {Error} if 0 > index > 2
+	 */
 	setComponent: function ( index, value ) {
 
 		switch ( index ) {
@@ -66,6 +95,11 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {number} index - 0 to 2
+	 * @return {number}
+	 * @throw {Error} if 0 > index > 2
+	 */
 	getComponent: function ( index ) {
 
 		switch ( index ) {
@@ -79,6 +113,10 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * Copies the elements of v into this vector
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	copy: function ( v ) {
 
 		this.x = v.x;
@@ -89,6 +127,11 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {!THREE.Vector3} v
+	 * @param {THREE.Vector3=} w - deprecated, Vector3's .add() now only accepts one argument. Use .addVectors( a, b ) instead.
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	add: function ( v, w ) {
 
 		if ( w !== undefined ) {
@@ -106,6 +149,10 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {number} s
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	addScalar: function ( s ) {
 
 		this.x += s;
@@ -116,6 +163,11 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {!THREE.Vector3} a
+	 * @param {!THREE.Vector3} b
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	addVectors: function ( a, b ) {
 
 		this.x = a.x + b.x;
@@ -126,6 +178,11 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {!THREE.Vector3} v
+	 * @param {THREE.Vector3} w - deprecated - Vector3's .sub() now only accepts one argument. Use .subVectors( a, b ) instead
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	sub: function ( v, w ) {
 
 		if ( w !== undefined ) {
@@ -143,6 +200,11 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {!THREE.Vector3} a
+	 * @param {!THREE.Vector3} b
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	subVectors: function ( a, b ) {
 
 		this.x = a.x - b.x;
@@ -153,6 +215,11 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {!THREE.Vector3} v
+	 * @param {THREE.Vector3} w - deprecated - Vector3's .multiply() now only accepts one argument. Use .multiplyVectors( a, b ) instead
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	multiply: function ( v, w ) {
 
 		if ( w !== undefined ) {
@@ -170,6 +237,10 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {number} s
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	multiplyScalar: function ( s ) {
 
 		this.x *= s;
@@ -180,6 +251,11 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {!THREE.Vector3} a
+	 * @param {!THREE.Vector3} b
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	multiplyVectors: function ( a, b ) {
 
 		this.x = a.x * b.x;
@@ -190,6 +266,10 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {!THREE.Matrix3} m
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	applyMatrix3: function ( m ) {
 
 		var x = this.x;
@@ -206,6 +286,10 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {!THREE.Matrix4} m
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	applyMatrix4: function ( m ) {
 
 		// input: THREE.Matrix4 affine matrix
@@ -222,6 +306,10 @@ THREE.Vector3.prototype = {
 
 	},
 
+	/**
+	 * @param {!THREE.Matrix4} m - projection matrix
+	 * @return {THREE.Vector3} this for chaining
+	 */
 	applyProjection: function ( m ) {
 
 		// input: THREE.Matrix4 projection matrix

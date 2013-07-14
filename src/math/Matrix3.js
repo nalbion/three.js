@@ -4,6 +4,23 @@
  * @author bhouston / http://exocortex.com
  */
 
+/**
+ * Defaults to an identity matrix:
+ * 1, 0, 0
+ * 0, 1, 0
+ * 0, 0, 1
+ * 
+ * @param {number=} n11 - defaults to 1
+ * @param {number=} n12 - defaults to 0
+ * @param {number=} n13 - defaults to 0
+ * @param {number=} n21 - defaults to 0
+ * @param {number=} n22 - defaults to 1
+ * @param {number=} n23 - defaults to 0
+ * @param {number=} n31 - defaults to 0
+ * @param {number=} n32 - defaults to 0
+ * @param {number=} n33 - defaults to 1
+ * @constructor
+ */ 
 THREE.Matrix3 = function ( n11, n12, n13, n21, n22, n23, n31, n32, n33 ) {
 
 	this.elements = new Float32Array(9);
@@ -21,6 +38,18 @@ THREE.Matrix3.prototype = {
 
 	constructor: THREE.Matrix3,
 
+	/**
+	 * @param {number} n11
+	 * @param {number} n12
+	 * @param {number} n13
+	 * @param {number} n21
+	 * @param {number} n22
+	 * @param {number} n23
+	 * @param {number} n31
+	 * @param {number} n32
+	 * @param {number} n33
+	 * @return {THREE.Matrix3}
+	 */
 	set: function ( n11, n12, n13, n21, n22, n23, n31, n32, n33 ) {
 
 		var te = this.elements;
@@ -33,6 +62,10 @@ THREE.Matrix3.prototype = {
 
 	},
 
+	/**
+	 * Sets the matrix to an identiy matrix
+	 * @return {THREE.Matrix3} this for chaining
+	 */
 	identity: function () {
 
 		this.set(
@@ -47,6 +80,10 @@ THREE.Matrix3.prototype = {
 
 	},
 
+	/**
+	 * @param {THREE.Matrix3} m
+	 * @return {THREE.Matrix3} this object for chaining
+	 */
 	copy: function ( m ) {
 
 		var me = m.elements;
@@ -63,6 +100,9 @@ THREE.Matrix3.prototype = {
 
 	},
 
+	/**
+	 * @deprecated Use vector.applyMatrix3( matrix ) instead
+	 */
 	multiplyVector3: function ( vector ) {
 
 		console.warn( 'DEPRECATED: Matrix3\'s .multiplyVector3() has been removed. Use vector.applyMatrix3( matrix ) instead.' );
@@ -96,6 +136,11 @@ THREE.Matrix3.prototype = {
 
 	}(),
 
+	/**
+	 * Mulitplies each element by the scalar <code>s</code>
+	 * @param {number} s
+	 * @return {THREE.Matrix3} this for chaining
+	 */
 	multiplyScalar: function ( s ) {
 
 		var te = this.elements;
@@ -108,6 +153,10 @@ THREE.Matrix3.prototype = {
 
 	},
 
+	/**
+	 * @return {number}
+	 * @see http://en.wikipedia.org/wiki/Determinant
+	 */
 	determinant: function () {
 
 		var te = this.elements;
@@ -120,6 +169,14 @@ THREE.Matrix3.prototype = {
 
 	},
 
+	/**
+	 * If possible, modifies this matrix to its inverse.
+	 * If this matrix is not invertible, either throws <code>Error</code> or logs a warning to the console.
+	 * @param {THREE.Matrix3} matrix
+	 * @param {boolean=} throwOnInvertible - defaults to false
+	 * @return {THREE.Matrix3} this for chaining
+	 * @throws {Error}
+	 */
 	getInverse: function ( matrix, throwOnInvertible ) {
 
 		// input: THREE.Matrix4
@@ -168,6 +225,10 @@ THREE.Matrix3.prototype = {
 
 	},
 
+	/**
+	 * Transposes the elements of the matrix
+	 * @return {THREE.Matrix3} this for chaining
+	 */
 	transpose: function () {
 
 		var tmp, m = this.elements;
@@ -180,6 +241,10 @@ THREE.Matrix3.prototype = {
 
 	},
 
+	/**
+	 * Inverts and transposes the the matrix
+	 * @return {THREE.Matrix3} this for chaining
+	 */
 	getNormalMatrix: function ( m ) {
 
 		// input: THREE.Matrix4
@@ -190,6 +255,10 @@ THREE.Matrix3.prototype = {
 
 	},
 
+	/**
+	 * @param {Array<number>} r
+	 * @return {THREE.Matrix3} this for chaining
+	 */
 	transposeIntoArray: function ( r ) {
 
 		var m = this.elements;
@@ -208,6 +277,9 @@ THREE.Matrix3.prototype = {
 
 	},
 
+	/** 
+	 * @return {THREE.Matrix3}
+	 */
 	clone: function () {
 
 		var te = this.elements;

@@ -2,8 +2,10 @@
  * @author zz85 / http://www.lab4games.net/zz85/blog
  * Creates free form 2d path using series of points, lines or curves.
  *
- **/
-
+ * @param {Array.<THREE.Vector2>} points
+ * @constructor
+ * @extends THREE.CurvePath
+ */
 THREE.Path = function ( points ) {
 
 	THREE.CurvePath.call(this);
@@ -33,9 +35,10 @@ THREE.PathActions = {
 
 // TODO Clean up PATH API
 
-// Create path using straight lines to connect all points
-// - vectors: array of Vector2
-
+/**
+ * Create path using straight lines to connect all points
+ * @param {Array.<THREE.Vector2>} vectors
+ */
 THREE.Path.prototype.fromPoints = function ( vectors ) {
 
 	this.moveTo( vectors[ 0 ].x, vectors[ 0 ].y );
@@ -132,6 +135,14 @@ THREE.Path.prototype.splineThru = function( pts /*Array of Vector*/ ) {
 
 // FUTURE: Change the API or follow canvas API?
 
+/**
+ * @param {number} aX - x coordinate of centre
+ * @param {number} aY - y coordinate of centre
+ * @param {number} aRadius
+ * @param {number} aStartAngle in radians
+ * @param {number} aEndAngle in radians
+ * @param {boolean} aClockwise
+ */
 THREE.Path.prototype.arc = function ( aX, aY, aRadius,
 									  aStartAngle, aEndAngle, aClockwise ) {
 
@@ -178,6 +189,11 @@ THREE.Path.prototype.absellipse = function ( aX, aY, xRadius, yRadius,
 
  };
 
+/**
+ * @param {number=} divisions - defaults to 12
+ * @param {boolean=} closedPath
+ * @return {Array.<THREE.Vector2>} an array of vectors based on contour of the path 
+ */
 THREE.Path.prototype.getSpacedPoints = function ( divisions, closedPath ) {
 
 	if ( ! divisions ) divisions = 40;
@@ -202,8 +218,11 @@ THREE.Path.prototype.getSpacedPoints = function ( divisions, closedPath ) {
 
 };
 
-/* Return an array of vectors based on contour of the path */
-
+/**
+ * @param {number=} divisions - defaults to 12
+ * @param {boolean=} closedPath
+ * @return {Array.<THREE.Vector2>} an array of vectors based on contour of the path 
+ */
 THREE.Path.prototype.getPoints = function( divisions, closedPath ) {
 
 	if (this.useSpacedPoints) {

@@ -11,9 +11,34 @@
  * @author WestLangley / http://github.com/WestLangley
  */
 
-
+/**
+ * Defaults to an identity matrix:
+ * 1, 0, 0, 0
+ * 0, 1, 0, 0
+ * 0, 0, 1, 0
+ * 0, 0, 0, 1
+ * 
+ * @param {number=} n11 - defaults to 1
+ * @param {number=} n12 - defaults to 0
+ * @param {number=} n13 - defaults to 0
+ * @param {number=} n14 - defaults to 0
+ * @param {number=} n21 - defaults to 0
+ * @param {number=} n22 - defaults to 1
+ * @param {number=} n23 - defaults to 0
+ * @param {number=} n24 - defaults to 0
+ * @param {number=} n31 - defaults to 0
+ * @param {number=} n32 - defaults to 0
+ * @param {number=} n33 - defaults to 1
+ * @param {number=} n34 - defaults to 0
+ * @param {number=} n41 - defaults to 0
+ * @param {number=} n42 - defaults to 0
+ * @param {number=} n43 - defaults to 0
+ * @param {number=} n44 - defaults to 1
+ * @constructor
+ */
 THREE.Matrix4 = function ( n11, n12, n13, n14, n21, n22, n23, n24, n31, n32, n33, n34, n41, n42, n43, n44 ) {
 
+	/** @type {Float32Array} */
 	var te = this.elements = new Float32Array( 16 );
 
 	// TODO: if n11 is undefined, then just set to identity, otherwise copy all other values into matrix
@@ -29,7 +54,26 @@ THREE.Matrix4 = function ( n11, n12, n13, n14, n21, n22, n23, n24, n31, n32, n33
 THREE.Matrix4.prototype = {
 
 	constructor: THREE.Matrix4,
-
+	
+	/**
+	 * @param {number} n11
+	 * @param {number} n12
+	 * @param {number} n13
+	 * @param {number} n14
+	 * @param {number} n21
+	 * @param {number} n22
+	 * @param {number} n23
+	 * @param {number} n24
+	 * @param {number} n31
+	 * @param {number} n32
+	 * @param {number} n33
+	 * @param {number} n34
+	 * @param {number} n41
+	 * @param {number} n42
+	 * @param {number} n43
+	 * @param {number} n44
+	 * @return {THREE.Matrix4}
+	 */
 	set: function ( n11, n12, n13, n14, n21, n22, n23, n24, n31, n32, n33, n34, n41, n42, n43, n44 ) {
 
 		var te = this.elements;
@@ -43,6 +87,10 @@ THREE.Matrix4.prototype = {
 
 	},
 
+	/**
+	 * Sets the matrix to an identiy matrix
+	 * @return {THREE.Matrix4}
+	 */
 	identity: function () {
 
 		this.set(
@@ -58,6 +106,10 @@ THREE.Matrix4.prototype = {
 
 	},
 
+	/**
+	 * @param {THREE.Matrix4} m
+	 * @return {THREE.Matrix4} this object for chaining
+	 */
 	copy: function ( m ) {
 
 		var me = m.elements;
@@ -75,6 +127,10 @@ THREE.Matrix4.prototype = {
 
 	},
 
+	/**
+	 * @param {THREE.Matrix4} m
+	 * @deprecated renamed to .copyPosition()
+	 */
 	extractPosition: function ( m ) {
 
 		console.warn( 'DEPRECATED: Matrix4\'s .extractPosition() has been renamed to .copyPosition().' );
@@ -82,6 +138,11 @@ THREE.Matrix4.prototype = {
 
 	},
 
+	/**
+	 * Copies the position elements: n14, n24, n34 which are mapped to indices [12], [13], [14]
+	 * @param {THREE.Matrix4} m
+	 * @return {THREE.Matrix4} this object for chaining
+	 */
 	copyPosition: function ( m ) {
 
 		var te = this.elements;
@@ -95,6 +156,9 @@ THREE.Matrix4.prototype = {
 
 	},
 
+	/**
+	 * @return {function({THREE.Matrix4}): {THREE.Matrix4}}
+	 */
 	extractRotation: function () {
 
 		var v1 = new THREE.Vector3();
@@ -354,6 +418,11 @@ THREE.Matrix4.prototype = {
 
 	},
 
+	/**
+	 * @param {!THREE.Matrix4} a
+	 * @param {!THREE.Matrix4} b
+	 * @return {THREE.Matrix4} this for chaining
+	 */
 	multiplyMatrices: function ( a, b ) {
 
 		var ae = a.elements;

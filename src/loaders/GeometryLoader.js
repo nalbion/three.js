@@ -2,6 +2,11 @@
  * @author mrdoob / http://mrdoob.com/
  */
 
+/**
+ * Loads geometry from JSON at a specified URL.
+ * Applications should implement parse({string} json)
+ * @constructor
+ */
 THREE.GeometryLoader = function () {};
 THREE.GeometryLoader.prototype = {
 

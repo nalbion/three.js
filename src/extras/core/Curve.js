@@ -305,7 +305,13 @@ THREE.LineCurve.prototype.getTangent = function( t ) {
  *	Quadratic Bezier curve
  **************************************************************/
 
-
+/**
+ * @param {THREE.Vector2} v0 - initial 
+ * @param {THREE.Vector2} v1 - mid-point tangent
+ * @param {THREE.Vector2} v2 - end
+ * @constructor
+ * @extends THREE.Curve
+ */
 THREE.QuadraticBezierCurve = function ( v0, v1, v2 ) {
 
 	this.v0 = v0;
@@ -425,6 +431,17 @@ THREE.SplineCurve.prototype.getPoint = function ( t ) {
  *	Ellipse curve
  **************************************************************/
 
+/**
+ * @param {number} aX - x coordinate of centre
+ * @param {number} aY - y coordinate of centre
+ * @param {number} xRadius
+ * @param {number} yRadius
+ * @param {number} aStartAngle in radians
+ * @param {number} aEndAngle in radians
+ * @param {boolean} aClockwise
+ * @constructor
+ * @extends THREE.Curve
+ */
 THREE.EllipseCurve = function ( aX, aY, xRadius, yRadius,
 							aStartAngle, aEndAngle,
 							aClockwise ) {
@@ -444,6 +461,10 @@ THREE.EllipseCurve = function ( aX, aY, xRadius, yRadius,
 
 THREE.EllipseCurve.prototype = Object.create( THREE.Curve.prototype );
 
+/**
+ * @param {number} t - 0 to 1
+ * @return {THREE.Vector2}
+ */
 THREE.EllipseCurve.prototype.getPoint = function ( t ) {
 
 	var deltaAngle = this.aEndAngle - this.aStartAngle;
@@ -467,6 +488,16 @@ THREE.EllipseCurve.prototype.getPoint = function ( t ) {
  *	Arc curve
  **************************************************************/
 
+/**
+ * @param {number} aX - x coordinate of centre
+ * @param {number} aY - y coordinate of centre
+ * @param {number} aRadius
+ * @param {number} aStartAngle in radians
+ * @param {number} aEndAngle in radians
+ * @param {boolean} aClockwise
+ * @constructor
+ * @extends THREE.EllipseCurve
+ */
 THREE.ArcCurve = function ( aX, aY, aRadius, aStartAngle, aEndAngle, aClockwise ) {
 
 	THREE.EllipseCurve.call( this, aX, aY, aRadius, aRadius, aStartAngle, aEndAngle, aClockwise );
