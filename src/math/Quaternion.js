@@ -1,10 +1,19 @@
 /**
+ * @param {number} x 
+ * @param {number} y
+ * @param {number} z
+ * @param {number} w
+ *
  * @author mikael emtinger / http://gomo.se/
  * @author alteredq / http://alteredqualia.com/
  * @author WestLangley / http://github.com/WestLangley
  * @author bhouston / http://exocortex.com
+ *
+ * @see http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/index.htm
+ * @see http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/transforms/index.htm
+ * @see http://en.wikipedia.org/wiki/Quaternion
+ * @see http://content.gpwiki.org/index.php/OpenGL:Tutorials:Using_Quaternions_to_represent_rotation
  */
-
 THREE.Quaternion = function( x, y, z, w ) {
 
 	this.x = x || 0;
@@ -118,6 +127,9 @@ THREE.Quaternion.prototype = {
 
 	},
 
+	/**
+	 * @param {THREE.Matrix3}
+	 */
 	setFromRotationMatrix: function ( m ) {
 
 		// http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/index.htm

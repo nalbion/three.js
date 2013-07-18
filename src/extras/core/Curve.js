@@ -436,8 +436,8 @@ THREE.SplineCurve.prototype.getPoint = function ( t ) {
  * @param {number} aY - y coordinate of centre
  * @param {number} xRadius
  * @param {number} yRadius
- * @param {number} aStartAngle in radians
- * @param {number} aEndAngle in radians
+ * @param {number} aStartAngle in radians (from the x axis, with respect to the centre)
+ * @param {number} aEndAngle in radians (from the x axis, with respect to the centre)
  * @param {boolean} aClockwise
  * @constructor
  * @extends THREE.Curve
@@ -492,8 +492,8 @@ THREE.EllipseCurve.prototype.getPoint = function ( t ) {
  * @param {number} aX - x coordinate of centre
  * @param {number} aY - y coordinate of centre
  * @param {number} aRadius
- * @param {number} aStartAngle in radians
- * @param {number} aEndAngle in radians
+ * @param {number} aStartAngle in radians (from the x axis, with respect to the centre)
+ * @param {number} aEndAngle in radians (from the x axis, with respect to the centre)
  * @param {boolean} aClockwise
  * @constructor
  * @extends THREE.EllipseCurve

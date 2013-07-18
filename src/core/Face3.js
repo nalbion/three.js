@@ -3,6 +3,7 @@
  * @author alteredq / http://alteredqualia.com/
  */
 
+
 THREE.Face3 = function ( a, b, c, normal, color, materialIndex ) {
 
 	this.a = a;

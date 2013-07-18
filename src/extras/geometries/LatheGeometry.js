@@ -12,6 +12,7 @@
  * @param {number=} phiLength - the radian (0 to 2*PI) range of the lathed section
  *    2*pi is a closed lathe, less than 2PI is a portion.
  * @constructor
+ * @extends THREE.Geometry
  */
 THREE.LatheGeometry = function ( points, segments, phiStart, phiLength ) {
 
