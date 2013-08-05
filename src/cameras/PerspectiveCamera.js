@@ -4,6 +4,14 @@
  * @author zz85 / http://www.lab4games.net/zz85/blog
  */
 
+/**
+ * @param {number=} fov determines how wide the field of view is
+ * @param {number=} aspect calculated by dividing the viewing area's width by its height
+ * @param {number=} near If an object's distance from the camera does not fall in the range between <code>near</code> and <code>far</code> then that object is not rendered
+ * @param {number=} far
+ * @constructor
+ * @extends THREE.Camera
+ */
 THREE.PerspectiveCamera = function ( fov, aspect, near, far ) {
 
 	THREE.Camera.call( this );

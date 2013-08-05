@@ -805,6 +805,10 @@ THREE.Matrix4.prototype = {
 
 	},
 
+	/**
+	 * @param {number} theta
+	 * @return {THREE.Matrix4} this object for chaining
+	 */
 	makeRotationX: function ( theta ) {
 
 		var c = Math.cos( theta ), s = Math.sin( theta );
@@ -822,6 +826,10 @@ THREE.Matrix4.prototype = {
 
 	},
 
+	/**
+	 * @param {number} theta
+	 * @return {THREE.Matrix4} this object for chaining
+	 */
 	makeRotationY: function ( theta ) {
 
 		var c = Math.cos( theta ), s = Math.sin( theta );
@@ -839,6 +847,10 @@ THREE.Matrix4.prototype = {
 
 	},
 
+	/**
+	 * @param {number} theta
+	 * @return {THREE.Matrix4} this object for chaining
+	 */
 	makeRotationZ: function ( theta ) {
 
 		var c = Math.cos( theta ), s = Math.sin( theta );
@@ -856,10 +868,13 @@ THREE.Matrix4.prototype = {
 
 	},
 
+	/**
+	 * Based on http://www.gamedev.net/reference/articles/article1199.asp
+	 * @param {THREE.Vector3} axis
+	 * @param {number} theta
+	 * @return {THREE.Matrix4} this object for chaining
+	 */
 	makeRotationAxis: function ( axis, angle ) {
-
-		// Based on http://www.gamedev.net/reference/articles/article1199.asp
-
 		var c = Math.cos( angle );
 		var s = Math.sin( angle );
 		var t = 1 - c;
