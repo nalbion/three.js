@@ -6,8 +6,9 @@
 /**************************************************************
  *	Curved Path - a curve path is simply a array of connected
  *  curves, but retains the api of a curve
+ * @constructor
+ * @extends THREE.Curve
  **************************************************************/
-
 THREE.CurvePath = function () {
 
 	this.curves = [];

@@ -4,7 +4,7 @@
  *
  * @param {Array.<THREE.Vector2>} points
  * @constructor
- * @extends THREE.CurvePath
+ * @extends THREE.CurvePath -> THREE.Curve
  */
 THREE.Path = function ( points ) {
 
@@ -136,6 +136,8 @@ THREE.Path.prototype.splineThru = function( pts /*Array of Vector*/ ) {
 // FUTURE: Change the API or follow canvas API?
 
 /**
+ * Note: THREE.Path.prototype.absellipse adds <code>lastPoint.x</code> and <code>lastPoint.y</code> to lastargs
+ *
  * @param {number} aX - x coordinate of centre
  * @param {number} aY - y coordinate of centre
  * @param {number} aRadius

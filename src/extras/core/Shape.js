@@ -9,6 +9,10 @@
 // STEP 3a - Extract points from each shape, turn to vertices
 // STEP 3b - Triangulate each shape, add faces.
 
+/**
+ * @constructor
+ * @extends THREE.Path (and hence THREE.CurvePath, THREE.Curve)
+ */
 THREE.Shape = function () {
 
 	THREE.Path.apply( this, arguments );
