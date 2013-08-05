@@ -1,7 +1,16 @@
 /**
  * @author alteredq / http://alteredqualia.com/
+ *
+ * @param {number} left
+ * @param {number} right
+ * @param {number} top
+ * @param {number} bottom
+ * @param {number=} near
+ * @param {number=} far
+ *
+ * @constructor
+ * @extends THREE.Camera
  */
-
 THREE.OrthographicCamera = function ( left, right, top, bottom, near, far ) {
 
 	THREE.Camera.call( this );

@@ -2,10 +2,11 @@
  * @author mrdoob / http://mrdoob.com/
  * @author mikael emtinger / http://gomo.se/
  * @author WestLangley / http://github.com/WestLangley
-*/
-
+ *
+ * @constructor
+ * @extends THREE.Object3D
+ */
 THREE.Camera = function () {
-
 	THREE.Object3D.call( this );
 
 	this.matrixWorldInverse = new THREE.Matrix4();

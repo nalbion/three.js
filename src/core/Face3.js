@@ -1,8 +1,14 @@
 /**
  * @author mrdoob / http://mrdoob.com/
  * @author alteredq / http://alteredqualia.com/
+ *
+ * @param {THREE.Vector3} a
+ * @param {THREE.Vector3} b
+ * @param {THREE.Vector3} c
+ * @param {THREE.Vector3=} normal
+ * @param {(THREE.Color|Array.<THREE.Color>)=} color
+ * @param {number=} materialIndex - defaults to 0
  */
-
 THREE.Face3 = function ( a, b, c, normal, color, materialIndex ) {
 
 	this.a = a;

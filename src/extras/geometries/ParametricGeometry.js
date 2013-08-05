@@ -4,9 +4,15 @@
  * based on the brilliant article by @prideout http://prideout.net/blog/?p=44
  *
  * new THREE.ParametricGeometry( parametricFunction, uSegments, ySegements, useTris );
+ * 
+ * @param {function(number,number): THREE.Vector3} func
+ * @param {number} slices - number of x segments
+ * @param {number} stacks - number of y segments
+ * @param {boolean=} useTris - true to use THREE.Face3, otherwise THREE.Face4. Defaults to false
  *
+ * @constructor
+ * @extends THREE.Geometry
  */
-
 THREE.ParametricGeometry = function ( func, slices, stacks, useTris ) {
 
 	THREE.Geometry.call( this );

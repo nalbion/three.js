@@ -5,14 +5,16 @@
  * @author mikael emtinger / http://gomo.se/
  * @author zz85 / http://www.lab4games.net/zz85/blog
  * @author bhouston / http://exocortex.com
+ *
+ * @constructor
  */
-
 THREE.Geometry = function () {
 
 	this.id = THREE.GeometryIdCount ++;
 
 	this.name = '';
 
+	/** @type {Array.<THREE.Vector3>} */
 	this.vertices = [];
 	this.colors = [];  // one-to-one vertex colors, used in ParticleSystem, Line and Ribbon
 	this.normals = []; // one-to-one vertex normals, used in Ribbon
