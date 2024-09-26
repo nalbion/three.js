@@ -10,7 +10,7 @@ The aim of the project is to create a lightweight 3D library with a very low lev
 
 ### Usage ###
 
-Download the [minified library](http://threejs.org/build/three.min.js) and include it in your html.
+Download the [minified library](http://threejs.org/build/three.min.js) and include it in your HTML.
 Alternatively see [how to build the library yourself](https://github.com/mrdoob/three.js/wiki/build.py,-or-how-to-generate-a-compressed-Three.js-file).
 
 ```html
